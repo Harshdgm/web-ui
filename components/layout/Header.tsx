@@ -3,50 +3,53 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { BsSun, BsMoon } from "react-icons/bs";
+import { HiMenuAlt3 } from "react-icons/hi";
 
 export default function Header() {
-  const [isDark, setIsDark] = useState(false);
+  const [isDark, setIsDark] = useState<boolean>(false);
+  const [mounted, setMounted] = useState(false);
 
-  // Load saved theme from localStorage or system preference
   useEffect(() => {
     const savedTheme = localStorage.getItem("theme");
-    if (savedTheme) {
-      setIsDark(savedTheme === "dark");
-      document.documentElement.classList.toggle("dark", savedTheme === "dark");
-    } else {
-      // default to system preference
-      const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-      setIsDark(prefersDark);
-      document.documentElement.classList.toggle("dark", prefersDark);
-    }
+    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+    const darkMode = savedTheme === "dark" || (!savedTheme && prefersDark);
+    setIsDark(darkMode);
+    document.documentElement.classList.toggle("dark", darkMode);
+    setMounted(true);
   }, []);
 
   const toggleTheme = () => {
-    document.documentElement.classList.toggle("dark");
-    setIsDark(!isDark);
-    localStorage.setItem("theme", !isDark ? "dark" : "light");
+    const nextDark = !isDark;
+    setIsDark(nextDark);
+    document.documentElement.classList.toggle("dark", nextDark);
+    localStorage.setItem("theme", nextDark ? "dark" : "light");
   };
 
+  if (!mounted) return null;
+
   return (
-    <header className="sticky top-0 z-50">
-      <div className="container relative flex h-16 items-center justify-between border-x border-[#eeeef0]">
-        <Link href="/" className="text-lg font-semibold">
+    <header className="sticky top-0 z-50 bg-background text-foreground transition-colors duration-300">
+      <div className="container flex items-center justify-between h-16 border-x border-[#eeeef0] relative px-4 sm:px-6 md:px-8">
+        <Link href="/" className="text-lg md:text-xl font-semibold">
           Web UI
         </Link>
 
-        <nav className="flex gap-6 text-sm">
+        <nav className="hidden md:flex gap-6 text-sm">
           <Link href="/" className="hover:underline">Home</Link>
           <Link href="/about" className="hover:underline">About</Link>
           <Link href="/contact" className="hover:underline">Contact</Link>
         </nav>
 
-        <button
-          onClick={toggleTheme}
-          className="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition"
-          aria-label="Toggle dark mode"
-        >
-          {isDark ? <BsSun size={20} /> : <BsMoon size={20} />}
+        <button className="md:hidden p-2" aria-label="Open menu">
+          <HiMenuAlt3 size={20} />
         </button>
+
+        <button onClick={toggleTheme} aria-label="Toggle dark mode"
+          className="p-2 rounded-md transition-colors hover:bg-gray-200 dark:hover:bg-gray-700">
+            {isDark ? <BsSun size={20} color="#FFD700" /> : <BsMoon size={20} color="#1a1a1a" />}
+        </button>
+
 
         <span className="absolute bottom-0 left-0 w-full h-0.5 bg-[linear-gradient(90deg,#fcfcfc,#f0f0f0)] dark:bg-[linear-gradient(90deg,#171717,#1a1a1a)]"></span>
       </div>
