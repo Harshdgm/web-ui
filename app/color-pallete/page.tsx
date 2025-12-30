@@ -8,8 +8,8 @@ export default function page() {
         <section className="container border-x border-b border-[#eeeef0] h-[50px]">
             <div className='p-10 border-x border-[#eeeef0]'></div>
         </section>
-        <section className="container border-x border-[#eeeef0]">
-            <div className='p-10 border-x border-[#eeeef0] bg-[#fafafa] grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10'>   
+        <section className="container border-x border-[#eeeef0] ">
+            <div className='p-10 border-x border-[#eeeef0] dark:bg-foreground bg-background grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10'>   
                 {COLOR_PALETTES.map((palette, index) => (
                 <ColorPalleteBox key={index} colors={palette} />
                 ))}
