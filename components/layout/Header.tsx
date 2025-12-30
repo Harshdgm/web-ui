@@ -29,16 +29,16 @@ export default function Header() {
   if (!mounted) return null;
 
   return (
-    <header className="sticky top-0 z-50 bg-background text-foreground transition-colors duration-300">
+    <header className="sticky top-0 z-50 dark:bg-foreground bg-background text-foreground  transition-colors duration-300 ">
       <div className="container flex items-center justify-between h-16 border-x border-[#eeeef0] relative px-4 sm:px-6 md:px-8">
         <Link href="/" className="text-lg md:text-xl font-semibold">
           Web UI
         </Link>
 
-        <nav className="hidden md:flex gap-6 text-sm">
-          <Link href="/" className="hover:underline">Home</Link>
-          <Link href="/about" className="hover:underline">About</Link>
-          <Link href="/contact" className="hover:underline">Contact</Link>
+        <nav className="hidden md:flex gap-6 text-base">
+          <Link href="/" className="transition-colors hover:underline hover:text-[#FFD700]">Home</Link>
+          <Link href="/color-pallete" className="hover:underline hover:text-[#FFD700]">Color Pallete</Link>
+          <Link href="/design-pattern" className="hover:underline hover:text-[#FFD700]">Design Pattern</Link>
         </nav>
 
         <button className="md:hidden p-2" aria-label="Open menu">

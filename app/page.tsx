@@ -1,11 +1,14 @@
 import DiagonalDivider from "@/components/ui/DiagonalDivider";
+import Hero from "@/components/ui/Hero";
 import PixelLogo from "@/components/ui/PixelLogo";
 
 export default function Home() {
   return (
       <main className="border-y border-[#eeeef0]">
-          <section className="container flex items-center justify-center border-x border-[#eeeef0]">
-            <h1 className="text-[18px]">Home Page</h1>
+          <section className="container border-x border-[#eeeef0]">
+            <div className="flex items-center justify-center text-[18px] mx-10 border-x border-[#eeeef0] bg-[#fafafa]">
+              <Hero />
+            </div>
           </section>
 
           <section
