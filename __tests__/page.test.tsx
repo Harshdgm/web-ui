@@ -11,8 +11,10 @@ describe("Home Page", () => {
   // integration test
   it("renders DiagonalDivider", () => {
     render(<Home />);
-    const canvas = screen.getByTestId("diagonal-divider");
-    expect(canvas).toBeInTheDocument();
+    // const canvas = screen.getByTestId("diagonal-divider");
+    // expect(canvas).toBeInTheDocument();
+    const dividers = screen.getAllByTestId("diagonal-divider");
+    expect(dividers.length).toBeGreaterThan(0);
   });
 
   it("renders Another content",()=>{

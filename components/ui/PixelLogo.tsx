@@ -11,11 +11,11 @@ export default function Logo() {
       <DiagonalDivider height={32} spacing={12} />
     </div>
     <div className="container flex gap-40 border-x border-[#eeeef0]">
-      <div className="text-gray-500 text-xs tracking-wider [writing-mode:vertical-rl] rotate-180 px-4">
+      <div className="text-gray-500 text-xs tracking-wider [writing-mode:vertical-rl] rotate-180 px-4 pl-7.5 border-l border-[#eeeef0]">
         Logotype
       </div>
-      <div className={`${pressStart.className} border-l border-[#eeeef0] flex items-center justify-center text-black text-[48px] leading-none font-normal`}>
-        <span className="ml-2">Harsh Dev</span>
+      <div className={`${pressStart.className} flex items-center justify-center w-full  text-[48px] leading-none font-normal mr-30`}>
+        Harsh Dev
       </div>
     </div>
     </>
