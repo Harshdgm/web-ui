@@ -1,0 +1,27 @@
+// import type { Config } from "tailwindcss";
+
+// const config: Config = {
+//   content: [
+//     "./app/**/*.{ts,tsx}",
+//     "./components/**/*.{ts,tsx}",
+//   ],
+//   theme: {
+//     extend: {
+//       colors: {
+//         bestbg: "#FCF8F8";
+//         border: "#eeeef0",
+//         primary: "#ff5141",
+//         blue: "#0d2541",
+//         grayBg: "#f9f9f9",
+//         white: "#ffffff",
+//         black: "#000000",
+//       },
+//       backgroundImage: {
+//         "gradient-blue": "linear-gradient(90deg, #0d2541 0%, #39679d 100%)",
+//       },
+//     },
+//   },
+//   plugins: [],
+// };
+
+// export default config;
