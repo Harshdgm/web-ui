@@ -11,6 +11,31 @@ export default function InstallationCommand() {
   const [copied, setCopied] = useState(false);
   const [openMCP, setOpenMCP] = useState(false);
 
+  const getTestCommand = () => {
+    switch (active) {
+      case "npm":
+        return "npm test";
+      case "pnpm":
+        return "pnpm test";
+      case "yarn":
+        return "yarn test";
+      case "bun":
+        return "bun test";
+      default:
+        return "bun test";
+    }
+  };
+
+  const testConfig = `{
+    "scripts": {
+      "test": "${getTestCommand()}"
+    },
+    "jest": {
+      "testEnvironment": "node"
+    }
+  }`;
+
+
   const handleMCP = () => {
      setOpenMCP(true);
   }
@@ -31,16 +56,10 @@ export default function InstallationCommand() {
      <CommandModal
         open={openMCP}
         onClose={() => setOpenMCP(false)}
-        title="Configure MCP"
-        subtitle="Copy and paste the following code into your project's components.json."
-        code={`{
-            "registries": {
-                "@ncdai": "https://chanhdai.com/r/{name}.json"
-                }
-            }`
-        }
+        title="Configure Test Script"
+        subtitle="Copy and paste this into your package.json."
+        code={testConfig}
       />
-   
     <div className="text-[16px] sm:mx-5 md:mx-10 border-x border-[#eeeef0]">
       <div className="font-mono flex items-center justify-between border-b border-[#eeeef0] bg-[var(--backgroundLight)]">
         <div className="flex">
