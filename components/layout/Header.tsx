@@ -8,6 +8,7 @@ import { HiMenuAlt3 } from "react-icons/hi";
 export default function Header() {
   const [isDark, setIsDark] = useState<boolean>(false);
   const [mounted, setMounted] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     const savedTheme = localStorage.getItem("theme");
@@ -29,7 +30,7 @@ export default function Header() {
   if (!mounted) return null;
 
   return (
-    <header className="sticky top-0 z-50 dark:bg-foreground bg-background text-foreground  transition-colors duration-300 ">
+    <header className="sticky top-0 z-50 dark:bg-foreground bg-background text-foreground transition-colors duration-300">
       <div className="container flex items-center justify-between h-16 border-x border-[#eeeef0] relative px-4 sm:px-6 md:px-8">
         <Link href="/" className="text-lg md:text-xl font-semibold">
           Web UI
@@ -42,15 +43,32 @@ export default function Header() {
           <Link href="/testing" className="hover:underline hover:text-[#FFD700]">Testing</Link>
         </nav>
 
-        <button className="md:hidden p-2" aria-label="Open menu">
-          <HiMenuAlt3 size={20} />
-        </button>
+        <div className="flex items-center gap-2">
+          <button
+            className="md:hidden p-2"
+            aria-label="Open menu"
+            onClick={() => setMenuOpen(!menuOpen)}
+          >
+            <HiMenuAlt3 size={20} />
+          </button>
 
-        <button onClick={toggleTheme} aria-label="Toggle dark mode"
-          className="p-2 rounded-md transition-colors hover:bg-gray-200 dark:hover:bg-gray-700">
+          <button
+            onClick={toggleTheme}
+            aria-label="Toggle dark mode"
+            className="p-2 rounded-md transition-colors hover:bg-gray-200 dark:hover:bg-gray-700"
+          >
             {isDark ? <BsSun size={20} color="#FFD700" /> : <BsMoon size={20} color="#1a1a1a" />}
-        </button>
+          </button>
+        </div>
 
+        {menuOpen && (
+          <nav className="absolute top-full left-0 w-full bg-background dark:bg-foreground flex flex-col gap-4 p-4 md:hidden shadow-md">
+            <Link href="/" className="hover:underline hover:text-[#FFD700]" onClick={() => setMenuOpen(false)}>Home</Link>
+            <Link href="/color-pallete" className="hover:underline hover:text-[#FFD700]" onClick={() => setMenuOpen(false)}>Color Pallete</Link>
+            <Link href="/design-pattern" className="hover:underline hover:text-[#FFD700]" onClick={() => setMenuOpen(false)}>Design Pattern</Link>
+            <Link href="/testing" className="hover:underline hover:text-[#FFD700]" onClick={() => setMenuOpen(false)}>Testing</Link>
+          </nav>
+        )}
 
         <span className="absolute bottom-0 left-0 w-full h-0.5 bg-[linear-gradient(90deg,#fcfcfc,#f0f0f0)] dark:bg-[linear-gradient(90deg,#171717,#1a1a1a)]"></span>
       </div>

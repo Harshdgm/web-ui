@@ -25,7 +25,7 @@ const itemVariants: Variants = {
 
 export default function Counter() {
   return (
-    <section className="px-var(--wrapspace) py-5 border-t border-[#eeeef0]">
+    <section className="px-var(--wrapspace) py-5 border-y border-[#eeeef0]">
       <motion.div
         initial="hidden"
         whileInView="visible"
@@ -45,9 +45,7 @@ export default function Counter() {
               max-[992px]:border-r-0
               max-[992px]:border-b max-[992px]:border-white/20
               max-[992px]:nth-last-1:border-b-0
-              max-[992px]:nth-last-2:border-b-0
-            "
-          >
+              max-[992px]:nth-last-2:border-b-0">
             <h3 className="font-bold leading-tight text-[clamp(32px,6vw,70px)]">
               <CountUp
                 start={0}
