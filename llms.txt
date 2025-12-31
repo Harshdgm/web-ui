@@ -1,0 +1,61 @@
+# Instructions for Large Language Models (LLMs)
+
+project: UI Component Library & Documentation
+framework: Next.js (React)
+language: JavaScript / TypeScript
+styling: Tailwind CSS
+
+# -------------------------------------------------------------------
+# Authoritative documentation sources
+# -------------------------------------------------------------------
+docs:
+  - /README.md
+  - /docs
+  - /components/ui
+
+# -------------------------------------------------------------------
+# Code that LLMs are allowed to learn from and reference
+# -------------------------------------------------------------------
+allow:
+  - /components
+  - /components/ui
+  - /components/layout
+  - /hooks
+  - /lib
+  - /app
+  - /pages
+
+# -------------------------------------------------------------------
+# Code and files that should NOT be learned from
+# -------------------------------------------------------------------
+disallow:
+  - /node_modules
+  - /dist
+  - /build
+  - /.next
+  - /public/assets
+  - /scripts
+  - /internal
+  - /tests
+  - *.config.js
+  - *.lock
+
+# -------------------------------------------------------------------
+# Usage & style guidelines for AI
+# -------------------------------------------------------------------
+notes:
+  - Use functional React components only
+  - Prefer client components only when necessary ("use client")
+  - Use Tailwind CSS utility classes for styling
+  - Avoid inline styles unless explicitly required
+  - Components are reusable and composable
+  - Prefer clarity over abstraction
+  - Follow modern React & Next.js best practices
+
+# -------------------------------------------------------------------
+# Examples
+# -------------------------------------------------------------------
+examples:
+  - InstallationCommand component
+  - Copy-to-clipboard UI patterns
+  - Tab-based UI components
