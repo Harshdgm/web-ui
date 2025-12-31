@@ -39,6 +39,7 @@ export default function Header() {
           <Link href="/" className="transition-colors hover:underline hover:text-[#FFD700]">Home</Link>
           <Link href="/color-pallete" className="hover:underline hover:text-[#FFD700]">Color Pallete</Link>
           <Link href="/design-pattern" className="hover:underline hover:text-[#FFD700]">Design Pattern</Link>
+          <Link href="/testing" className="hover:underline hover:text-[#FFD700]">Testing</Link>
         </nav>
 
         <button className="md:hidden p-2" aria-label="Open menu">

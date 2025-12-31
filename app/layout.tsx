@@ -3,6 +3,7 @@ import { Manrope } from "next/font/google";
 import "./globals.css";
 import Footer from "@/components/layout/Footer";
 import Header from "@/components/layout/Header";
+import ScrollToTop from "@/components/common/ScrollToTop";
 
 const manrope = Manrope({
   subsets: ["latin"],
@@ -20,11 +21,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="dark">
       <body className={`${manrope.variable} min-h-screen flex flex-col`}>
          <Header />
          <main className="flex-1">
           {children}
+          <ScrollToTop />
         </main>
         <Footer />
       </body>

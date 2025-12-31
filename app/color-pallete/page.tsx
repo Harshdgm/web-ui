@@ -5,7 +5,7 @@ import { COLOR_PALETTES } from "@/constant/colorPalettes";
 export default function page() {
   return (
     <main className="border-y border-[#eeeef0]">
-        <section className="container border-x border-b border-[#eeeef0] h-[50px]">
+        <section className="container border-x border-b border-[#eeeef0] h-12.5">
             <div className='p-10 border-x border-[#eeeef0]'></div>
         </section>
         <section className="container border-x border-[#eeeef0] ">
@@ -15,7 +15,7 @@ export default function page() {
                 ))}
             </div> 
         </section>
-        <section className="container border-x border-t border-[#eeeef0] h-[48px]">
+        <section className="container border-x border-t border-[#eeeef0] h-12">
             <div className='p-6 border-x border-[#eeeef0]'></div>
         </section>
     </main>

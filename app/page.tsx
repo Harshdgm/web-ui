@@ -1,4 +1,6 @@
+import Counter from "@/components/ui/Counter";
 import DiagonalDivider from "@/components/ui/DiagonalDivider";
+import GridBox from "@/components/ui/GridBox";
 import Hero from "@/components/ui/Hero";
 import PixelLogo from "@/components/ui/PixelLogo";
 
@@ -6,7 +8,7 @@ export default function Home() {
   return (
       <main className="border-y border-[#eeeef0]">
           <section className="container border-x border-[#eeeef0]">
-            <div className="flex items-center justify-center text-[18px] mx-10 border-x border-[#eeeef0] bg-[#fafafa]">
+            <div className="flex items-center justify-center sm:mx-5 md:mx-10 border-x border-[#eeeef0] bg-background">
               <Hero />
             </div>
           </section>
@@ -19,7 +21,11 @@ export default function Home() {
           </section>
 
           <section className="container border-x border-[#eeeef0]">
-            <p>Another content</p>
+            <div className=" text-[18px] sm:mx-5 md:mx-10 border-x border-[#eeeef0]">
+              <GridBox />
+              <Counter />
+            </div>
+            
           </section>
           <PixelLogo />
       </main>
