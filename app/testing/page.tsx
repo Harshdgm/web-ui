@@ -1,5 +1,6 @@
 "use client";
 
+import CodeStructure from "@/components/ui/CodeStructure";
 import DiagonalDivider from "@/components/ui/DiagonalDivider";
 import ImageGrid from "@/components/ui/ImageGrid";
 import InstallationCommand from "@/components/ui/InstallationCommand";
@@ -60,6 +61,9 @@ export default function Testing() {
             <section className="container border-x border-[#eeeef0] h-10">
                 <div className="px-4 py-5 font-bold text-[24px] sm:mx-5 md:mx-10 border-x border-b border-[#eeeef0]" />
             </section> 
+            
+            <CodeStructure />
+           
             <section className="container border-x  border-[#eeeef0]">
                 <div className=" sm:mx-5 md:mx-10 border-x border-[#eeeef0]">
                     <ImageGrid />
